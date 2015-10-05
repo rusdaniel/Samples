@@ -5,13 +5,15 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownGenerator", "MarkdownGenerator\MarkdownGenerator.csproj", "{477BECFC-8C12-4A88-86E5-3B7D7C278247}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "MardownGenerator.Installer", "MardownGenerator.Installer\MardownGenerator.Installer.wixproj", "{9DCBA1CD-DA83-48A9-BCB8-EBA536FF721D}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "MarkdownGenerator.Installer", "MardownGenerator.Installer\MarkdownGenerator.Installer.wixproj", "{9DCBA1CD-DA83-48A9-BCB8-EBA536FF721D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownGenerator.Parser", "MarkdownGenerator.Parser\MarkdownGenerator.Parser.csproj", "{1A2075D7-3F85-483D-B6E2-3DAF6B8EA76E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MardownGenerator.Viewer", "MardownGenerator.Viewer\MardownGenerator.Viewer.csproj", "{0F6D05F0-0F09-4C6B-B5F3-D217577F9BEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownGenerator.Viewer", "MardownGenerator.Viewer\MarkdownGenerator.Viewer.csproj", "{0F6D05F0-0F09-4C6B-B5F3-D217577F9BEA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownGenerator.Parser.UnitTests", "MarkdownGenerator.Parser.UnitTests\MarkdownGenerator.Parser.UnitTests.csproj", "{C3B4DAD7-B54C-4007-AD44-C692E666B178}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownGenerator.Common", "MarkdownGenerator.Common\MarkdownGenerator.Common.csproj", "{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,16 @@ Global
 		{C3B4DAD7-B54C-4007-AD44-C692E666B178}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C3B4DAD7-B54C-4007-AD44-C692E666B178}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C3B4DAD7-B54C-4007-AD44-C692E666B178}.Release|x86.ActiveCfg = Release|Any CPU
+		{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FD7D868C-B3F4-422E-83EB-B292ADF7DCCF}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarkdownGenerator
 {
-    interface IMarkdownViewer
+    public interface IMarkdownViewer
     {
         void DisplayDoc(string source);
     }
