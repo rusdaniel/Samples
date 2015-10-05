@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="MardownGenerator.Installer" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="90e6fccb-9d70-436f-85cf-8e05fcd46765">
+	<Product Id="*" Name="MardownGenerator.Installer" Language="1033" Version="1.0.0.0" Manufacturer="RDE" UpgradeCode="90e6fccb-9d70-436f-85cf-8e05fcd46765">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
