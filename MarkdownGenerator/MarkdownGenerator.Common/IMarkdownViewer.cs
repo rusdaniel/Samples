@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarkdownGenerator
+namespace MarkdownGenerator.Interfaces
 {
     public interface IMarkdownViewer
     {

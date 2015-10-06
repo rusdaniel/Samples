@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarkdownGenerator
+namespace MarkdownGenerator.Interfaces
 {
     public interface IParser
     {
-        bool TryParse(string path, out string result);
+        bool TryParse(string text, ref string result);
     }
 }

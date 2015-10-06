@@ -50,8 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="HeadersParser.UnitTests.cs" />
+    <Compile Include="Parser.UnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarkdownGenerator.Parser\MarkdownGenerator.Parser.csproj">
+      <Project>{1a2075d7-3f85-483d-b6e2-3daf6b8ea76e}</Project>
+      <Name>MarkdownGenerator.Parser</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
