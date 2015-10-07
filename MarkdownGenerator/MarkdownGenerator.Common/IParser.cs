@@ -4,6 +4,6 @@ namespace MarkdownGenerator.Interfaces
 {
     public interface IParser
     {
-        Stream Parse();
+        Stream Parse(Stream inputData);
     }
 }

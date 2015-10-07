@@ -1,25 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MarkdownGenerator.Interfaces;
+﻿using MarkdownGenerator.Interfaces;
 using System.IO;
 
 namespace MarkdownGenerator.Parser
 {
     public class Parser : IParser
     {
-        private Stream inputData;
+        public Parser() { }
 
-        public Parser(Stream stream)
+        public Stream Parse(Stream inputData)
         {
-            this.inputData = stream;
-        }
-
-        public Stream Parse()
-        {
-            var paragraphsParser = new ParagraphsParser(this.inputData);
+            var paragraphsParser = new ParagraphsParser(inputData);
             return paragraphsParser.ParseParagraphs();
         }
     }
