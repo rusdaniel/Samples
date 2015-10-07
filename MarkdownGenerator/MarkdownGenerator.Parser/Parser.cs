@@ -8,7 +8,7 @@ using System.IO;
 
 namespace MarkdownGenerator.Parser
 {
-    public class Parser// : IParser
+    public class Parser : IParser
     {
         private Stream inputData;
 
@@ -17,16 +17,10 @@ namespace MarkdownGenerator.Parser
             this.inputData = stream;
         }
 
-        public string Parse()
+        public Stream Parse()
         {
-            StringBuilder result = new StringBuilder();
-            this.ParseHeaders(result);
-
-            return result.ToString();
-        }
-
-        private void ParseHeaders(StringBuilder result)
-        {
+            var paragraphsParser = new ParagraphsParser(this.inputData);
+            return paragraphsParser.ParseParagraphs();
         }
     }
 }
