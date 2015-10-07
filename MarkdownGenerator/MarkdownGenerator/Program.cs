@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MarkdownGenerator.Interfaces;
+using SimpleInjector;
+using Generator;
+
 
 namespace MarkdownGenerator
 {
@@ -10,6 +9,8 @@ namespace MarkdownGenerator
     {
         static void Main(string[] args)
         {
+            var container = new Container();
+            container.Register<IParser, MarkdownGenerator.Parser.Parser>();
         }
     }
 }

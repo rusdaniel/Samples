@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\packages\SimpleInjector.3.0.6\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,11 +44,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MDGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MardownGenerator.Viewer\MarkdownGenerator.Viewer.csproj">
+      <Project>{0f6d05f0-0f09-4c6b-b5f3-d217577f9bea}</Project>
+      <Name>MarkdownGenerator.Viewer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkdownGenerator.Common\MarkdownGenerator.Common.csproj">
+      <Project>{fd7d868c-b3f4-422e-83eb-b292adf7dccf}</Project>
+      <Name>MarkdownGenerator.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkdownGenerator.Parser\MarkdownGenerator.Parser.csproj">
+      <Project>{1a2075d7-3f85-483d-b6e2-3daf6b8ea76e}</Project>
+      <Name>MarkdownGenerator.Parser</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
