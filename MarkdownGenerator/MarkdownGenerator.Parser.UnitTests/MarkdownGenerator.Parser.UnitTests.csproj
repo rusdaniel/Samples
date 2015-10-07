@@ -53,6 +53,7 @@
     <Compile Include="HeadersParser.UnitTests.cs" />
     <Compile Include="Parser.UnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ParagraphsParser.UnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarkdownGenerator.Parser\MarkdownGenerator.Parser.csproj">
