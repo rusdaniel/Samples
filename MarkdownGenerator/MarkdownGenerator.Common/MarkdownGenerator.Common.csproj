@@ -39,6 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Code.cs" />
+    <Compile Include="Data\Header.cs" />
+    <Compile Include="Data\LinkItem.cs" />
+    <Compile Include="Data\ListItem.cs" />
+    <Compile Include="Data\MdDoc.cs" />
+    <Compile Include="Data\MdElement.cs" />
+    <Compile Include="Data\OrderedList.cs" />
+    <Compile Include="Data\Paragraph.cs" />
+    <Compile Include="Data\UnorderedList.cs" />
     <Compile Include="IMarkdownViewer.cs" />
     <Compile Include="IParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
