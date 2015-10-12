@@ -42,6 +42,23 @@
     <Compile Include="HeadersParser.cs" />
     <Compile Include="ParagraphsParser.cs" />
     <Compile Include="Parser.cs" />
+    <Compile Include="ParserStateMachine.cs" />
+    <Compile Include="ParserStates\BoldState.cs" />
+    <Compile Include="ParserStates\CodeState.cs" />
+    <Compile Include="ParserStates\EntryState.cs" />
+    <Compile Include="ParserStates\Header1State.cs" />
+    <Compile Include="ParserStates\Header2State.cs" />
+    <Compile Include="ParserStates\Header3State.cs" />
+    <Compile Include="ParserStates\Header4State.cs" />
+    <Compile Include="ParserStates\Header5State.cs" />
+    <Compile Include="ParserStates\Header6State.cs" />
+    <Compile Include="ParserStates\ImgState.cs" />
+    <Compile Include="ParserStates\ISignalState.cs" />
+    <Compile Include="ParserStates\ItalicState.cs" />
+    <Compile Include="ParserStates\LinkState.cs" />
+    <Compile Include="ParserStates\OLState.cs" />
+    <Compile Include="ParserStates\ParagraphState.cs" />
+    <Compile Include="ParserStates\ULState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
