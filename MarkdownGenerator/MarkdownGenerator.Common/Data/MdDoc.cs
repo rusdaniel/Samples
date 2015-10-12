@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     [Serializable]
     public class MdDoc
@@ -20,16 +21,17 @@
 
         public List<Header> GetHeaders()
         {
-            var result = new List<Header>();
-            this.elements.ForEach(elem =>
-                {
-                    if (elem is Header)
-                    {
-                        result.Add(elem as Header);
-                    }
-                });
+            return this.elements.OfType<Header>().ToList();
+        }
 
-            return result;
+        public void AddCode(Code code)
+        {
+            this.elements.Add(code);
+        }
+
+        public List<Code> GetCodeElements()
+        {
+            return this.elements.OfType<Code>().ToList();
         }
     }
 }
