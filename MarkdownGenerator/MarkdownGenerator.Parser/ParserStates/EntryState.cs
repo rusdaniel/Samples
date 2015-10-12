@@ -27,6 +27,7 @@ namespace MarkdownGenerator.ParserStates
                     sm.NextState = new ULState();
                     break;
                 case ' ':
+                case '\n':
                     break;
                 default:
                     sm.NextState = new ParagraphState();

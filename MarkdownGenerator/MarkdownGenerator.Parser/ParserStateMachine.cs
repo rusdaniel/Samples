@@ -24,19 +24,12 @@ namespace MarkdownGenerator.Parser
             {
                 while (!reader.EndOfStream)
                 {
-                    this.ParseLine(reader.ReadLine());
+                    this.NextState
+                        .ProcessChar((char)reader.Read(), this, null);
                 }
             }
 
             return this.MdDocToStream();
-        }
-
-        private void ParseLine(string line)
-        {
-            for (int i = 0; i < line.Length; i++)
-            {
-                this.NextState.ProcessChar(line[i], this, null);
-            }
         }
 
         private Stream MdDocToStream()

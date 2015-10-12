@@ -52,6 +52,7 @@
     <Compile Include="ParserStates\Header4State.cs" />
     <Compile Include="ParserStates\Header5State.cs" />
     <Compile Include="ParserStates\Header6State.cs" />
+    <Compile Include="ParserStates\HeaderState.cs" />
     <Compile Include="ParserStates\ImgState.cs" />
     <Compile Include="ParserStates\ISignalState.cs" />
     <Compile Include="ParserStates\ItalicState.cs" />
