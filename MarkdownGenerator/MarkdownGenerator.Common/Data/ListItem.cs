@@ -1,7 +1,9 @@
-﻿
-using System.Text;
-namespace MarkdownGenerator.Common.Data
+﻿namespace MarkdownGenerator.Common.Data
 {
+    using System;
+    using System.Text;
+
+    [Serializable]
     public class ListItem : MdElement
     {
         //contains list of ListItemComponent

@@ -1,7 +1,9 @@
-﻿
-using System.Collections.Generic;
-namespace MarkdownGenerator.Common.Data
+﻿namespace MarkdownGenerator.Common.Data
 {
+    using System;
+    using System.Collections.Generic;
+
+    [Serializable]
     public class MdElement
     {
         protected string text;

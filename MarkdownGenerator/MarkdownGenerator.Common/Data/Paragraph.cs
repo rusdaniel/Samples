@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MarkdownGenerator.Common.Data
+﻿namespace MarkdownGenerator.Common.Data
 {
+    using System;
+
+    [Serializable]
     class Paragraph
     {
     }

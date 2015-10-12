@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace MarkdownGenerator.Common.Data
+﻿namespace MarkdownGenerator.Common.Data
 {
+    using System;
+    using System.Collections.Generic;
+
     public enum HeaderType
     {
         H1 = 0,
@@ -12,11 +13,12 @@ namespace MarkdownGenerator.Common.Data
         H6
     }
 
+    [Serializable]
     public class Header : MdElement
     {
         private Dictionary<HeaderType, string> headerFormats = new Dictionary<HeaderType, string>()
         {
-            {HeaderType.H1, "<H1>{0}</h1>"},
+            {HeaderType.H1, "<h1>{0}</h1>"},
             {HeaderType.H2, "<h2>{0}</h2>"},
             {HeaderType.H3, "<h3>{0}</h3>"},
             {HeaderType.H4, "<h4>{0}</h4>"},

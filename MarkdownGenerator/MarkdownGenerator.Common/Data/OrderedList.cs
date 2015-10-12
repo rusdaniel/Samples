@@ -1,8 +1,10 @@
-﻿
-using System.Collections.Generic;
-using System.Text;
-namespace MarkdownGenerator.Common.Data
+﻿namespace MarkdownGenerator.Common.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    [Serializable]
     public class OrderedList : MdElement
     {
         private const string listFormat = "<ol>{0}</ol>";

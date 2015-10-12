@@ -1,6 +1,8 @@
-﻿
-namespace MarkdownGenerator.Common.Data
+﻿namespace MarkdownGenerator.Common.Data
 {
+    using System;
+
+    [Serializable]
     public class Code : MdElement
     {
         private const string codeFormat = "<pre><code>{0}</code></pre>";
