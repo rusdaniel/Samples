@@ -33,5 +33,15 @@
         {
             return this.elements.OfType<Code>().ToList();
         }
+
+        public void AddOrderedList(OrderedList list)
+        {
+            this.elements.Add(list);
+        }
+
+        public List<OrderedList> GetOrderedLists()
+        {
+            return this.elements.OfType<OrderedList>().ToList();
+        }
     }
 }
