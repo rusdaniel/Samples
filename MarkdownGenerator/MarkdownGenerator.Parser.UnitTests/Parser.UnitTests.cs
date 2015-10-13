@@ -200,6 +200,42 @@
 
         #endregion
 
+        #region Ordered list tests
+
+        [TestMethod]
+        public void Given_TextContainingOrderedList_When_Parsed_Then_IsCorrectlyFormatted()
+        {
+            var inputText = "1. [some link]<https://nodejs.org/api/>\n2. ```parser.Parse(GenerateStreamFromString(inputText)```\n\n";
+            var outputStream = parser.Parse(GenerateStreamFromString(inputText));
+
+            var mdDoc = StreamToMdDoc(outputStream);
+
+            Assert.IsTrue(mdDoc.GetOrderedLists().Count == 1, "The number of Ordered lists is incorrect");
+            var html = mdDoc.GetOrderedLists().First().ToString();
+            Assert.IsTrue(html.StartsWith("<ol>"));
+            Assert.IsTrue(html.EndsWith("</ol>"));
+            Assert.IsTrue(html.Contains("<li><a href=\"https://nodejs.org/api/\">some link</a></li>"));
+            Assert.IsTrue(html.Contains("<li><pre><code>parser.Parse(GenerateStreamFromString(inputText)</code></pre></li>"));
+
+        }
+
+        [TestMethod]
+        public void Given_TextContainingOrderedList_WithMultipleElementsItems_When_Parsed_Then_IsCorrectlyFormatted()
+        {
+            var inputText = "1. [some link]<https://nodejs.org/api/>  `StreamToMdDoc(outputStream)` \n2. ```parser.Parse(GenerateStreamFromString(inputText)``` \n\n";
+            var outputStream = parser.Parse(GenerateStreamFromString(inputText));
+
+            var mdDoc = StreamToMdDoc(outputStream);
+
+            Assert.IsTrue(mdDoc.GetOrderedLists().Count == 1, "The number of Ordered lists is incorrect");
+            var html = mdDoc.GetOrderedLists().First().ToString();
+            Assert.IsTrue(html.StartsWith("<ol>"));
+            Assert.IsTrue(html.EndsWith("</ol>"));
+            Assert.IsTrue(html.Contains("<li><a href=\"https://nodejs.org/api/\">some link</a><pre><code>StreamToMdDoc(outputStream)</code></pre></li>"));
+        }
+
+        #endregion
+
         private static Stream GenerateStreamFromString(string s)
         {
             MemoryStream stream = new MemoryStream();

@@ -18,6 +18,11 @@
             return string.Format(itemFormat, this.ConcatenateComponents());
         }
 
+        public void AddMdElement(MdElement elem)
+        {
+            base.subElements.Add(elem);
+        }
+
         private string ConcatenateComponents()
         {
             StringBuilder result = new StringBuilder();

@@ -22,6 +22,11 @@
             return string.Format(listFormat, this.ConcatenateListItems());
         }
 
+        public void AddListItem(ListItem item)
+        {
+            this.items.Add(item);
+        }
+
         private string ConcatenateListItems()
         {
             StringBuilder result = new StringBuilder();
