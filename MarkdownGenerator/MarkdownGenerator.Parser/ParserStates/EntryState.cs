@@ -5,7 +5,7 @@ namespace MarkdownGenerator.ParserStates
 {
     public class EntryState : ISignalState
     {
-        public void ProcessChar(char input, ParserStateMachine sm, ISignalState initialState)
+        public void ProcessChar(char input, ParserStateMachine sm)
         {
             if (char.IsDigit(input))
             {

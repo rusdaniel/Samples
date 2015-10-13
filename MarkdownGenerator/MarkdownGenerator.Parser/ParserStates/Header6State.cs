@@ -6,7 +6,7 @@ namespace MarkdownGenerator.ParserStates
 {
     public class Header6State : HeaderState, ISignalState
     {
-        public void ProcessChar(char input, ParserStateMachine sm, ISignalState initialState)
+        public void ProcessChar(char input, ParserStateMachine sm)
         {
             if (ShouldIgnoreChar(input))
             {

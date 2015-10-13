@@ -25,7 +25,7 @@ namespace MarkdownGenerator.Parser
                 while (!reader.EndOfStream)
                 {
                     this.NextState
-                        .ProcessChar((char)reader.Read(), this, null);
+                        .ProcessChar((char)reader.Read(), this);
                 }
             }
 

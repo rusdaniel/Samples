@@ -5,7 +5,7 @@ namespace MarkdownGenerator.ParserStates
 {
     public class Header5State : HeaderState, ISignalState
     {
-        public void ProcessChar(char input, ParserStateMachine sm, ISignalState initialState)
+        public void ProcessChar(char input, ParserStateMachine sm)
         {
             if (this.ShouldChangeState(input))
             {

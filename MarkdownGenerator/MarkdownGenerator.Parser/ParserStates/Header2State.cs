@@ -7,7 +7,7 @@
     {
         public Header2State() : base() { }
 
-        public void ProcessChar(char input, ParserStateMachine sm, ISignalState initialState)
+        public void ProcessChar(char input, ParserStateMachine sm)
         {
             if (this.ShouldChangeState(input))
             {
