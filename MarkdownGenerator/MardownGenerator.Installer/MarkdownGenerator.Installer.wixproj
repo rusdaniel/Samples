@@ -22,7 +22,12 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Components.wxs" />
     <Compile Include="Product.wxs" />
+    <Compile Include="Registry.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration.wxi" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

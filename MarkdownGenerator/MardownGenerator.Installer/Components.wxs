@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include "Configuration.wxi"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="MarkdownGenerator.Common.dll" Guid="{E7171AB4-F995-4B65-A5A0-32CFBAE0F131}">
+        <File ReadOnly="no" Id="MarkdownGenerator.Common.dll" Name="MarkdownGenerator.Common.dll" Source="$(var.PathToBinaries)\MarkdownGenerator.Common.dll" KeyPath="yes"/> 
+      </Component>
+      <Component Id="MarkdownGenerator.Parser.dll" Guid="{2786DC30-6FED-4CD1-AE09-235ACF287905}">
+        <File ReadOnly="no" Id="MarkdownGenerator.Parser.dll" Name="MarkdownGenerator.Parser.dll" Source="$(var.PathToBinaries)\MarkdownGenerator.Parser.dll" KeyPath="yes"/>
+      </Component>
+      <Component Id="MarkdownGenerator.Viewer.dll" Guid="{03CF5492-CC91-4195-95D9-25F4DCD5D2C8}">
+        <File ReadOnly="no" Id="MarkdownGenerator.Viewer.dll" Name="MarkdownGenerator.Viewer.dll" Source="$(var.PathToBinaries)\MarkdownGenerator.Viewer.dll" KeyPath="yes"/>
+      </Component>
+      <Component Id="MarkdownGenerator.exe" Guid="{7A69062C-2FF8-44D7-9DEB-E793FD1C5591}">
+        <File ReadOnly="no" Id="MarkdownGenerator.exe" Name="MarkdownGenerator.exe" Source="$(var.PathToBinaries)\MarkdownGenerator.exe" KeyPath="yes"/>
+      </Component>
+      <Component Id ="MarkdownGenerator.exe.config" Guid="{0B3ED7DF-320F-4099-A988-AA567041E423}">
+        <File ReadOnly="no" Id="MarkdownGenerator.exe.config" Name="MarkdownGenerator.exe.config" Source="$(var.PathToBinaries)\MarkdownGenerator.exe.config" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <ComponentGroup Id="Components">
+      <ComponentRef Id="MarkdownGenerator.Common.dll"/>
+      <ComponentRef Id="MarkdownGenerator.Parser.dll"/>
+      <ComponentRef Id="MarkdownGenerator.Viewer.dll"/>
+      <ComponentRef Id="MarkdownGenerator.exe"/>
+      <ComponentRef Id="MarkdownGenerator.exe.config"/>
+    </ComponentGroup>
+    
+  </Fragment>
+</Wix>

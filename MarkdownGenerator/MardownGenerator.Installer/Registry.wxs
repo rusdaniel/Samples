@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <ComponentGroup Id="RegistryKeysGroup" Directory="INSTALLFOLDER">
+      <Component Id="RegistryKeys" Guid="{DF438816-6F0E-4B27-B371-DCA3486ACD22}" KeyPath="yes">
+        <RegistryKey Key=".md"  Root="HKCR">
+          <RegistryValue Value="MarkdownGenerator" Type="string" />
+        </RegistryKey>
+        <RegistryKey Key="MarkdownGenerator\shell\open\command" Root="HKCR">
+          <RegistryValue Value="[INSTALLDIR]\MarkdownGenerator.exe %1" Type="string" />
+        </RegistryKey>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
