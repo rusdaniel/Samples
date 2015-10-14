@@ -36,7 +36,7 @@
 
         public override string ToString()
         {
-            return string.Format(this.headerFormat, base.text);
+            return string.Format(this.headerFormat, base.Text);
         }
     }
 }

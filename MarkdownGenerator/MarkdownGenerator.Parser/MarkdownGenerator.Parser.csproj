@@ -39,9 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HeadersParser.cs" />
-    <Compile Include="ParagraphsParser.cs" />
-    <Compile Include="Parser.cs" />
     <Compile Include="ParserStateMachine.cs" />
     <Compile Include="ParserStates\BoldState.cs" />
     <Compile Include="ParserStates\CodeState.cs" />

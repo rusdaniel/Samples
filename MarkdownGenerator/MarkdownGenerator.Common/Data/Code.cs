@@ -13,7 +13,7 @@
 
         public override string ToString()
         {
-            return string.Format(codeFormat, base.text);
+            return string.Format(codeFormat, base.Text);
         }
     }
 }

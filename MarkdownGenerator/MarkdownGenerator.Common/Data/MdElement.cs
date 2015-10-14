@@ -6,19 +6,19 @@
     [Serializable]
     public class MdElement
     {
-        protected string text;
+        public string Text { get; protected set; }
 
-        protected List<MdElement> subElements;
+        public List<MdElement> SubElements { get; protected set; }
 
         public MdElement(string text)
         {
-            this.text = text;
-            this.subElements = new List<MdElement>();
+            this.Text = text;
+            this.SubElements = new List<MdElement>();
         }
 
         public override string ToString()
         {
-            return this.text;
+            return this.Text;
         }
     }
 }

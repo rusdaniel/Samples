@@ -7,17 +7,12 @@
     {
         private const string format = "<a href=\"{0}\">{1}</a>";
 
-        private string id;
+        public string Id { get; private set; }
 
         public LinkItem(string text, string id)
             : base(text)
         {
-            this.id = string.IsNullOrWhiteSpace(id) ? text : id;
-        }
-
-        public override string ToString()
-        {
-            return string.Format(format, base.text, id);
+            this.Id = id;
         }
     }
 }

@@ -5,9 +5,23 @@
     using System.Linq;
 
     [Serializable]
+    public class RootDocElem
+    {
+        public IEnumerable<MdElement> MdElements { get; set; }
+    }
+
+    [Serializable]
     public class MdDoc
     {
         private List<MdElement> elements;
+
+        public RootDocElem RootElem 
+        {
+            get
+            {
+                return new RootDocElem() { MdElements = this.elements };
+            }
+        }
 
         public MdDoc()
         {
@@ -19,29 +33,14 @@
             this.elements.Add(header);
         }
 
-        public List<Header> GetHeaders()
-        {
-            return this.elements.OfType<Header>().ToList();
-        }
-
         public void AddCode(Code code)
         {
             this.elements.Add(code);
         }
 
-        public List<Code> GetCodeElements()
-        {
-            return this.elements.OfType<Code>().ToList();
-        }
-
         public void AddOrderedList(OrderedList list)
         {
             this.elements.Add(list);
-        }
-
-        public List<OrderedList> GetOrderedLists()
-        {
-            return this.elements.OfType<OrderedList>().ToList();
         }
     }
 }

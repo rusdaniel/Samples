@@ -20,13 +20,13 @@
 
         public void AddMdElement(MdElement elem)
         {
-            base.subElements.Add(elem);
+            base.SubElements.Add(elem);
         }
 
         private string ConcatenateComponents()
         {
             StringBuilder result = new StringBuilder();
-            base.subElements.ForEach(item => result.Append(item.ToString()));
+            base.SubElements.ForEach(item => result.Append(item.ToString()));
 
             return result.ToString();
         }
