@@ -5,8 +5,6 @@
     [Serializable]
     public class OrderedList : MdElement
     {
-        private const string listFormat = "<ol>{0}</ol>";
-
         public OrderedList(string text)
             : base(text) { }
 
