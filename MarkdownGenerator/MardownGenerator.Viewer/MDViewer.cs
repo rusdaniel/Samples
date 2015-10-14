@@ -1,23 +1,53 @@
-﻿using MarkdownGenerator.Interfaces;
+﻿using MarkdownGenerator.Common.Data;
+using MarkdownGenerator.Interfaces;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 
-namespace MardownGenerator.Viewer
+namespace MarkdownGenerator.Viewer
 {
     public class MDViewer : IMarkdownViewer
     {
-        private const string fileName = "markdownDoc.html";
         private string filePath;
+
+        private IMdDocFormatter formatter;
 
         public MDViewer()
         {
-            this.filePath = Path.Combine(Path.GetTempPath(), fileName);
+            this.formatter = new HtmlFormatter();
+            this.filePath = Path.Combine(Path.GetTempPath(), this.formatter.FileName);
         }
 
         public void DisplayDoc(Stream source)
         {
-            this.SaveDataToFile(source);
-            Process.Start(this.filePath);
+            var formattedStream = this.formatter.FormatMdDoc(
+                this.GetMarkdownDoc(source));
+            this.SaveDataToFile(formattedStream);
+
+            this.ViewDoc();
+        }
+
+        private void ViewDoc()
+        {
+            var viewerThread = new Thread(
+                new ThreadStart(() =>
+                {
+                    var process = new Process();
+                    process.StartInfo.FileName = this.filePath;
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.CreateNoWindow = true;
+                    process.Start();
+                }));
+
+            viewerThread.Start();
+        }
+
+        private MdDoc GetMarkdownDoc(Stream source)
+        {
+            var bf = new BinaryFormatter();
+            source.Seek(0, SeekOrigin.Begin);
+            return (MdDoc)bf.Deserialize(source);
         }
 
         private void SaveDataToFile(Stream data)
