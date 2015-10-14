@@ -22,7 +22,7 @@
         protected override void AddHeader(ParserStateMachine sm)
         {
             sm.MdDoc.AddHeader(
-                new Header(this.header.ToString(), HeaderType.H3));
+                new Header3(this.header.ToString()));
         }
     }
 }

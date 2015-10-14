@@ -1,6 +1,5 @@
 ﻿using MarkdownGenerator.Common.Data;
 using MarkdownGenerator.Parser;
-using System;
 
 namespace MarkdownGenerator.ParserStates
 {
@@ -18,7 +17,7 @@ namespace MarkdownGenerator.ParserStates
         protected override void AddHeader(ParserStateMachine sm)
         {
             sm.MdDoc.AddHeader(
-                new Header(this.header.ToString(), HeaderType.H6));
+                new Header6(this.header.ToString()));
         }
     }
 }

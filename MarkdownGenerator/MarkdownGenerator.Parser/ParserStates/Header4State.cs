@@ -21,7 +21,7 @@ namespace MarkdownGenerator.ParserStates
         protected override void AddHeader(ParserStateMachine sm)
         {
             sm.MdDoc.AddHeader(
-                new Header(this.header.ToString(), HeaderType.H4));
+                new Header4(this.header.ToString()));
         }
     }
 }
