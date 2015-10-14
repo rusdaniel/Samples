@@ -11,18 +11,12 @@
             {
                 sm.NextState = new Header4State();
             }
-            else
+            else if (!ShouldIgnoreChar(input))
             {
-                if (ShouldIgnoreChar(input))
-                {
-                    return;
-                }
-                else
-                {
-                    this.OnHeaderComplete(input, sm);
-                    this.header.Append(input);
-                }
+                this.OnHeaderComplete(input, sm);
+                this.header.Append(input);
             }
+
         }
 
         protected override void AddHeader(ParserStateMachine sm)

@@ -13,17 +13,10 @@
             {
                 sm.NextState = new Header3State();
             }
-            else
+            else if (!ShouldIgnoreChar(input))
             {
-                if (ShouldIgnoreChar(input))
-                {
-                    return;
-                }
-                else
-                {
-                    this.OnHeaderComplete(input, sm);
-                    this.header.Append(input);
-                }
+                this.OnHeaderComplete(input, sm);
+                this.header.Append(input);
             }
         }
 

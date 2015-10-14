@@ -8,11 +8,7 @@ namespace MarkdownGenerator.ParserStates
     {
         public void ProcessChar(char input, ParserStateMachine sm)
         {
-            if (ShouldIgnoreChar(input))
-            {
-                return;
-            }
-            else
+            if (!ShouldIgnoreChar(input))
             {
                 this.OnHeaderComplete(input, sm);
                 this.header.Append(input);

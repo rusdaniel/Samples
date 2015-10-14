@@ -5,7 +5,7 @@ using System.Text;
 namespace MarkdownGenerator.ParserStates
 {
     public class Header1State : HeaderState, ISignalState
-    {   
+    {
         public Header1State() : base() { }
 
         public void ProcessChar(char input, ParserStateMachine sm)
@@ -14,24 +14,18 @@ namespace MarkdownGenerator.ParserStates
             {
                 sm.NextState = new Header2State();
             }
-            else
+            else if (!ShouldIgnoreChar(input))
             {
-                if (ShouldIgnoreChar(input))
-                {
-                    return;
-                }
-                else
-                {
-                    this.OnHeaderComplete(input, sm);
-                    this.header.Append(input);
-                }
+                this.OnHeaderComplete(input, sm);
+                this.header.Append(input);
             }
+
         }
 
         protected override void AddHeader(ParserStateMachine sm)
         {
             sm.MdDoc.AddHeader(
                 new Header(this.header.ToString(), HeaderType.H1));
-        } 
+        }
     }
 }
