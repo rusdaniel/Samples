@@ -35,7 +35,7 @@ namespace MarkdownGenerator.Viewer
                 {
                     var process = new Process();
                     process.StartInfo.FileName = this.filePath;
-                    process.StartInfo.UseShellExecute = false;
+                    //process.StartInfo.UseShellExecute = false;
                     process.StartInfo.CreateNoWindow = true;
                     process.Start();
                 }));

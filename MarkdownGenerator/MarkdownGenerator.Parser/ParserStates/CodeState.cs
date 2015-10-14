@@ -45,9 +45,7 @@
 
         private void OnSubElemCompleted(char input, ParserStateMachine sm)
         {
-            if (previousChar.Equals('`') &&
-                 (input.Equals(' ') || input.Equals('\n')) &&
-                 this.code.Length > 0)
+            if (IsElemCompleted(input))
             {
                 sm.NextState = this.initialState;
                 this.initialState.OnSubElementCompleted(
@@ -56,11 +54,16 @@
             }
         }
 
+        private bool IsElemCompleted(char input)
+        {
+            return previousChar.Equals('`') &&
+                             (input.Equals(' ') || input.Equals('\n') || (input.Equals('\r'))) &&
+                             this.code.Length > 0;
+        }
+
         private void OnCodeCompleted(char input, ParserStateMachine sm)
         {
-            if (previousChar.Equals('`') &&
-                input.Equals('\n') &&
-                this.code.Length > 0)
+            if (this.IsElemCompleted(input))
             {
                 sm.MdDoc.AddCode(
                     new Code(this.code.ToString()));
