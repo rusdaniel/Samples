@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     [Serializable]
     public class RootDocElem
@@ -15,7 +14,7 @@
     {
         private List<MdElement> elements;
 
-        public RootDocElem RootElem 
+        public RootDocElem RootElem
         {
             get
             {
@@ -28,7 +27,8 @@
             elements = new List<MdElement>();
         }
 
-        public void AddHeader(Header header)
+        //todo restrict the possibility to add any MdElement as a Header
+        public void AddHeader(MdElement header)
         {
             this.elements.Add(header);
         }
