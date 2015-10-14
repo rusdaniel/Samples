@@ -28,6 +28,7 @@ namespace MarkdownGenerator.ParserStates
                     break;
                 case ' ':
                 case '\n':
+                case '\r':
                     break;
                 default:
                     sm.NextState = new ParagraphState();
