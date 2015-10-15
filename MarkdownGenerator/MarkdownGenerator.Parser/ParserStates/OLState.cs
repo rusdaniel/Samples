@@ -5,15 +5,12 @@
     using System.Linq;
 
     public class OLState : ISignalSubElemState
-    {
-        private char previousChar;
-
+    { 
         private OrderedList orderedList;
 
         public OLState()
         {
             this.orderedList = new OrderedList(string.Empty);
-            this.previousChar = ' ';
         }
 
         public void ProcessChar(char input, ParserStateMachine sm)

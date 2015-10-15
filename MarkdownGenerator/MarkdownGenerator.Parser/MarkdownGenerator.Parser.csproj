@@ -58,6 +58,7 @@
     <Compile Include="ParserStates\ListItemState.cs" />
     <Compile Include="ParserStates\OLState.cs" />
     <Compile Include="ParserStates\ParagraphState.cs" />
+    <Compile Include="ParserStates\TextState.cs" />
     <Compile Include="ParserStates\ULState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

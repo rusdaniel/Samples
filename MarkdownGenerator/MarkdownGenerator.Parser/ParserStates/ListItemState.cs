@@ -34,6 +34,8 @@
                         sm.NextState = new LinkState(this);
                         break;
                     default:
+                        sm.NextState = new TextState(this);
+                        sm.NextState.ProcessChar(input, sm);
                         break;
                 }
             }
@@ -58,7 +60,7 @@
         private void OnListItemCompleted(char input, ParserStateMachine sm)
         {
             //we assume that a digit on a new line means new list item 
-            //we also assume that a new linea followed by a carriage return mean end on list
+            //we also assume that a new line followed by a carriage return means end on list
             if (isPendingEnd)
             {
                 if (char.IsDigit(input))
