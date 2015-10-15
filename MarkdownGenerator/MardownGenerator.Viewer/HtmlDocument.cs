@@ -63,30 +63,6 @@
             this.docBuilder.AppendLine("<body>");
             this.FormatMdElements(this.mdElements);
             this.docBuilder.AppendLine("</body>");
-
-        private void FormatDocument()
-        {
-            this.FormatHeader();
-            this.FormatBody();
-            this.FormatFooter();
-        }
-
-        private void FormatFooter()
-        {
-            this.docBuilder.AppendLine("</html>");
-        }
-
-        private void FormatHeader()
-        {
-            this.docBuilder.AppendLine("<!DOCTYPE html>");
-            this.docBuilder.AppendLine("<html>");
-        }
-
-        private void FormatBody()
-        {
-            this.docBuilder.AppendLine("<body>");
-            this.FormatMdElements(this.mdElements);
-            this.docBuilder.AppendLine("</body>");
         }
 
         private void FormatMdElements(IEnumerable<MdElement> elements)
