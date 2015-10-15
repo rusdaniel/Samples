@@ -55,6 +55,7 @@
     <Compile Include="OrderedList.Parser.UnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Header.Parser.UnitTests.cs" />
+    <Compile Include="Paragraph.Parser.UnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarkdownGenerator.Common\MarkdownGenerator.Common.csproj">

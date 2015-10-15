@@ -42,5 +42,10 @@
         {
             this.elements.Add(list);
         }
+
+        public void AddParagraph(Paragraph paragraph)
+        {
+            this.elements.Add(paragraph);
+        }
     }
 }

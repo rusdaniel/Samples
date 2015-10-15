@@ -3,7 +3,13 @@
     using System;
 
     [Serializable]
-    class Paragraph
+    public class Paragraph : MdElement
     {
+        public Paragraph() : base(string.Empty) { }
+
+        public void AddMdElement(MdElement elem)
+        {
+            base.SubElements.Add(elem);
+        }
     }
 }

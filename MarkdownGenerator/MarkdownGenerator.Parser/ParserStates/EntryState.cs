@@ -21,17 +21,18 @@ namespace MarkdownGenerator.ParserStates
                 case '`':
                     sm.NextState = new CodeState();
                     break;
-                case '*':
-                case '+':
-                case '-':
-                    sm.NextState = new ULState();
-                    break;
+                //case '*':
+                //case '+':
+                //case '-':
+                //    sm.NextState = new ULState();
+                //    break;
                 case ' ':
                 case '\n':
                 case '\r':
                     break;
                 default:
                     sm.NextState = new ParagraphState();
+                    sm.NextState.ProcessChar(input, sm);
                     break;
             }
         }
