@@ -9,9 +9,7 @@
     using System.Text;
 
     public class HtmlDocument : IDocument
-    {
-        private const string fileName = "markdownDoc.html";
-
+    { 
         private StringBuilder docBuilder;
 
         private IEnumerable<MdElement> mdElements;
@@ -30,14 +28,6 @@
             {typeof(Header6), "<h6>{0}</h6>"}
         };
 
-        public string FileName
-        {
-            get
-            {
-                return fileName;
-            }
-        }
-
         public HtmlDocument(MdDoc mdDoc)
         {
             this.docBuilder = new StringBuilder();
@@ -49,6 +39,30 @@
             this.FormatDocument();
             return GenerateStreamFromString(this.docBuilder.ToString());
         }
+
+        private void FormatDocument()
+        {
+            this.FormatHeader();
+            this.FormatBody();
+            this.FormatFooter();
+        }
+
+        private void FormatFooter()
+        {
+            this.docBuilder.AppendLine("</html>");
+        }
+
+        private void FormatHeader()
+        {
+            this.docBuilder.AppendLine("<!DOCTYPE html>");
+            this.docBuilder.AppendLine("<html>");
+        }
+
+        private void FormatBody()
+        {
+            this.docBuilder.AppendLine("<body>");
+            this.FormatMdElements(this.mdElements);
+            this.docBuilder.AppendLine("</body>");
 
         private void FormatDocument()
         {
