@@ -13,7 +13,7 @@ namespace MarkdownGenerator.Viewer
 
         public MDViewer()
         {
-            this.filePath = Path.Combine(Path.GetTempPath(), "testFile.md");
+            this.filePath = Path.Combine(Path.GetTempPath(), "testFile.html");
         }
 
         public void DisplayDoc(Stream source)

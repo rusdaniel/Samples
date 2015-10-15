@@ -9,7 +9,7 @@
     using System.Text;
 
     public class HtmlDocument : IDocument
-    { 
+    {
         private StringBuilder docBuilder;
 
         private IEnumerable<MdElement> mdElements;
@@ -25,7 +25,8 @@
             {typeof(Header3), "<h3>{0}</h3>"},
             {typeof(Header4), "<h4>{0}</h4>"},
             {typeof(Header5), "<h5>{0}</h5>"},
-            {typeof(Header6), "<h6>{0}</h6>"}
+            {typeof(Header6), "<h6>{0}</h6>"},
+            {typeof(Paragraph), "<p>{0}</p>"}
         };
 
         public HtmlDocument(MdDoc mdDoc)
@@ -75,11 +76,25 @@
                 }
                 else
                 {
-                    this.docBuilder.Append(
-                        string.Format(this.formats[elem.GetType()], elem.Text));
+                    this.FormatMdElement(elem);
                 }
                 this.docBuilder.AppendLine();
             });
+        }
+
+        private void FormatMdElement(MdElement elem)
+        {
+            if (elem.GetType() == typeof(LinkItem))
+            {
+                var linkItem = elem as LinkItem;
+                this.docBuilder.AppendFormat(
+                    this.formats[elem.GetType()], linkItem.Text, linkItem.Id);
+            }
+            else
+            {
+                this.docBuilder.AppendFormat(
+                    this.formats[elem.GetType()], elem.Text);
+            }
         }
 
         public static Stream GenerateStreamFromString(string s)
