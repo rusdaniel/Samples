@@ -21,7 +21,7 @@
         [TestMethod]
         public void Given_TextContainingOrderedList_When_Parsed_Then_IsCorrectlyFormatted()
         {
-            var inputText = "1. [some link]<https://nodejs.org/api/>\n2. ```parser.Parse(GenerateStreamFromString(inputText)```\n\n";
+            var inputText = "1. [some link]<https://nodejs.org/api/>\n2. ```parser.Parse(GenerateStreamFromString(inputText)```\n\r\n";
             var outputStream = parser.Parse(Converter.GenerateStreamFromString(inputText));
 
             var mdDoc = Converter.StreamToMdDoc(outputStream);
@@ -49,7 +49,7 @@
         [TestMethod]
         public void Given_TextContainingOrderedList_WithMultipleElementsItems_When_Parsed_Then_IsCorrectlyFormatted()
         {
-            var inputText = "1. [some link]<https://nodejs.org/api/>  `StreamToMdDoc(outputStream)` \n2. ```parser.Parse(GenerateStreamFromString(inputText)``` \n\n";
+            var inputText = "1. [some link]<https://nodejs.org/api/>  `StreamToMdDoc(outputStream)` \n2. ```parser.Parse(GenerateStreamFromString(inputText)``` \n\r\n";
             var outputStream = parser.Parse(Converter.GenerateStreamFromString(inputText));
 
             var mdDoc = Converter.StreamToMdDoc(outputStream);
