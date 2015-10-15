@@ -71,6 +71,62 @@
                     "StreamToMdDoc(outputStream)",
                     codeItem.Text,
                     StringComparison.InvariantCultureIgnoreCase) == 0, "The code is not correct");
-        }     
+        }
+
+        [TestMethod]
+        public void Given_TextContainingOrderedList_WithTextCode_When_Parsed_Then_IsCorrectlyFormatted()
+        {
+            var inputText = "1. Unit tests `StreamToMdDoc(outputStream)` for different reasons \r\n2. ```parser.Parse(GenerateStreamFromString(inputText)``` \n\r\n";
+            var outputStream = parser.Parse(Converter.GenerateStreamFromString(inputText));
+
+            var mdDoc = Converter.StreamToMdDoc(outputStream);
+
+            Assert.IsTrue(mdDoc.RootElem.MdElements.Count() == 1, "The number of Ordered lists is incorrect");
+            var orderedList = mdDoc.RootElem.MdElements.First();
+            var firstTextItem = orderedList.SubElements.First().SubElements.First() as MdElement;
+            var secondTextItem = orderedList.SubElements.First().SubElements.Last() as MdElement;
+            Assert.IsTrue(string.Compare(
+                    "Unit Tests ",
+                    firstTextItem.Text,
+                    StringComparison.InvariantCultureIgnoreCase) == 0, "The first text is not correct");
+            Assert.IsTrue(string.Compare(
+                    "for different reasons ",
+                    secondTextItem.Text,
+                    StringComparison.InvariantCultureIgnoreCase) == 0, "The second text is not correct");
+
+            var codeItem = orderedList.SubElements.First().SubElements[1] as Code;
+            Assert.IsTrue(string.Compare(
+                    "StreamToMdDoc(outputStream)",
+                    codeItem.Text,
+                    StringComparison.InvariantCultureIgnoreCase) == 0, "The code is not correct");
+        }
+
+        [TestMethod]
+        public void Given_TextContainingOrderedList_WithMultilineText_When_Parsed_Then_IsCorrectlyFormatted()
+        {
+            var inputText = "1. Unit tests for different reasons\r\nhere is why\r\n2. ```parser.Parse(GenerateStreamFromString(inputText)``` \n\r\n";
+            var outputStream = parser.Parse(Converter.GenerateStreamFromString(inputText));
+
+            var mdDoc = Converter.StreamToMdDoc(outputStream);
+
+            Assert.IsTrue(mdDoc.RootElem.MdElements.Count() == 1, "The number of Ordered lists is incorrect");
+            var orderedList = mdDoc.RootElem.MdElements.First();
+            var firstTextItem = orderedList.SubElements.First().SubElements.First() as MdElement;
+            var secondTextItem = orderedList.SubElements.First().SubElements.Last() as MdElement;
+            Assert.IsTrue(string.Compare(
+                    "Unit tests for different reasons",
+                    firstTextItem.Text,
+                    StringComparison.InvariantCultureIgnoreCase) == 0, "The first text is not correct");
+            Assert.IsTrue(string.Compare(
+                    "here is why",
+                    secondTextItem.Text,
+                    StringComparison.InvariantCultureIgnoreCase) == 0, "The second text is not correct");
+
+            var codeItem = orderedList.SubElements.Last().SubElements.First() as Code;
+            Assert.IsTrue(string.Compare(
+                    "parser.Parse(GenerateStreamFromString(inputText)",
+                    codeItem.Text,
+                    StringComparison.InvariantCultureIgnoreCase) == 0, "The code is not correct");
+          }
     }
 }
