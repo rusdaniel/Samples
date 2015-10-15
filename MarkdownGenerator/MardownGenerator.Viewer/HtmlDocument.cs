@@ -8,11 +8,13 @@
     using System.Linq;
     using System.Text;
 
-    public class HtmlFormatter : IMdDocFormatter
+    public class HtmlDocument : IDocument
     {
         private const string fileName = "markdownDoc.html";
 
         private StringBuilder docBuilder;
+
+        private IEnumerable<MdElement> mdElements;
 
         private Dictionary<Type, string> formats = new Dictionary<Type, string>()
         {
@@ -36,15 +38,41 @@
             }
         }
 
-        public HtmlFormatter()
+        public HtmlDocument(MdDoc mdDoc)
         {
             this.docBuilder = new StringBuilder();
+            this.mdElements = mdDoc.RootElem.MdElements;
         }
 
-        public Stream FormatMdDoc(MdDoc document)
+        public Stream GetContent()
         {
-            this.FormatMdElements(document.RootElem.MdElements);
+            this.FormatDocument();
             return GenerateStreamFromString(this.docBuilder.ToString());
+        }
+
+        private void FormatDocument()
+        {
+            this.FormatHeader();
+            this.FormatBody();
+            this.FormatFooter();
+        }
+
+        private void FormatFooter()
+        {
+            this.docBuilder.AppendLine("</html>");
+        }
+
+        private void FormatHeader()
+        {
+            this.docBuilder.AppendLine("<!DOCTYPE html>");
+            this.docBuilder.AppendLine("<html>");
+        }
+
+        private void FormatBody()
+        {
+            this.docBuilder.AppendLine("<body>");
+            this.FormatMdElements(this.mdElements);
+            this.docBuilder.AppendLine("</body>");
         }
 
         private void FormatMdElements(IEnumerable<MdElement> elements)

@@ -11,18 +11,15 @@ namespace MarkdownGenerator.Viewer
     {
         private string filePath;
 
-        private IMdDocFormatter formatter;
-
         public MDViewer()
         {
-            this.formatter = new HtmlFormatter();
-            this.filePath = Path.Combine(Path.GetTempPath(), this.formatter.FileName);
+            this.filePath = Path.Combine(Path.GetTempPath(), "testFile.md");
         }
 
         public void DisplayDoc(Stream source)
         {
-            var formattedStream = this.formatter.FormatMdDoc(
-                this.GetMarkdownDoc(source));
+            var htmlDoc = new HtmlDocument(this.GetMarkdownDoc(source));
+            var formattedStream = htmlDoc.GetContent();
             this.SaveDataToFile(formattedStream);
 
             this.ViewDoc();

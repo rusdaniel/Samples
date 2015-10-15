@@ -1,12 +1,9 @@
 ﻿namespace MarkdownGenerator.Interfaces
 {
-    using MarkdownGenerator.Common.Data;
     using System.IO;
 
-    public interface IMdDocFormatter
+    public interface IDocument
     {
-        Stream FormatMdDoc(MdDoc document);
-
-        string FileName { get; }
+        Stream GetContent();
     }
 }
