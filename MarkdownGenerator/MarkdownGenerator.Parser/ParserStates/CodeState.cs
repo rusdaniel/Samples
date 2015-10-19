@@ -63,8 +63,10 @@
 
         private void OnCodeCompleted(char input, ParserStateMachine sm)
         {
+            var shouldAddLineTerminators = input.Equals('\n') || input.Equals('\r');
             if (this.IsElemCompleted(input))
             {
+                this.AddLineTerminators(shouldAddLineTerminators);
                 sm.MdDoc.AddCode(
                     new Code(this.code.ToString()));
                 sm.NextState = new EntryState();
@@ -74,6 +76,14 @@
         private static bool ShouldIgnoreChar(char input)
         {
             return input.Equals('`');
+        }
+
+        private void AddLineTerminators(bool shouldAdd)
+        {
+            if (shouldAdd)
+            {
+                this.code.Append("\r\n");
+            }
         }
     }
 }
