@@ -14,21 +14,6 @@
 
         private IEnumerable<MdElement> mdElements;
 
-        private Dictionary<Type, string> formats = new Dictionary<Type, string>()
-        {
-            {typeof(Code), "<pre><code>{0}</code></pre>"},
-            {typeof(LinkItem), "<a href=\"{0}\">{1}</a>"},
-            {typeof(ListItem), "<li>{0}</li>"},
-            {typeof(OrderedList), "<ol>{0}</ol>"},
-            {typeof(Header1), "<h1>{0}</h1>"},
-            {typeof(Header2), "<h2>{0}</h2>"},
-            {typeof(Header3), "<h3>{0}</h3>"},
-            {typeof(Header4), "<h4>{0}</h4>"},
-            {typeof(Header5), "<h5>{0}</h5>"},
-            {typeof(Header6), "<h6>{0}</h6>"},
-            {typeof(Paragraph), "<p>{0}</p>"}
-        };
-
         public HtmlDocument(MdDoc mdDoc)
         {
             this.docBuilder = new StringBuilder();
@@ -62,39 +47,18 @@
         private void FormatBody()
         {
             this.docBuilder.AppendLine("<body>");
-            this.FormatMdElements(this.mdElements);
+            this.FormatMdElements();
             this.docBuilder.AppendLine("</body>");
         }
 
-        private void FormatMdElements(IEnumerable<MdElement> elements)
+        private void FormatMdElements()
         {
-            elements.ToList().ForEach(elem =>
+            this.mdElements.ToList().ForEach(elem =>
             {
-                if (elem.SubElements.Any())
-                {
-                    this.FormatMdElements(elem.SubElements);
-                }
-                else
-                {
-                    this.FormatMdElement(elem);
-                }
+                var htmlElem = HtmlElementFactory.CreateHtmlElement(elem);
+                this.docBuilder.Append(htmlElem.GetContent());
                 this.docBuilder.AppendLine();
             });
-        }
-
-        private void FormatMdElement(MdElement elem)
-        {
-            if (elem.GetType() == typeof(LinkItem))
-            {
-                var linkItem = elem as LinkItem;
-                this.docBuilder.AppendFormat(
-                    this.formats[elem.GetType()], linkItem.Text, linkItem.Id);
-            }
-            else
-            {
-                this.docBuilder.AppendFormat(
-                    this.formats[elem.GetType()], elem.Text);
-            }
         }
 
         public static Stream GenerateStreamFromString(string s)

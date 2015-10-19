@@ -39,7 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HtmlDocument.cs" />
+    <Compile Include="Html\HtmlText.cs" />
+    <Compile Include="Html\HtmlElementFactory.cs" />
+    <Compile Include="Html\HtmlElement.cs" />
+    <Compile Include="Html\HtmlCode.cs" />
+    <Compile Include="Html\HtmlHeader1.cs" />
+    <Compile Include="Html\HtmlHeader2.cs" />
+    <Compile Include="Html\HtmlHeader3.cs" />
+    <Compile Include="Html\HtmlHeader4.cs" />
+    <Compile Include="Html\HtmlHeader5.cs" />
+    <Compile Include="Html\HtmlHeader6.cs" />
+    <Compile Include="Html\HtmlLink.cs" />
+    <Compile Include="Html\HtmlListItem.cs" />
+    <Compile Include="Html\HtmlOrderedList.cs" />
+    <Compile Include="Html\HtmlParagraph.cs" />
+    <Compile Include="Html\HtmlDocument.cs" />
     <Compile Include="MDViewer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
