@@ -35,12 +35,14 @@
 
         private static bool ShouldAddChar(char input)
         {
-            return !input.Equals(']') && !input.Equals('<');
+            return !input.Equals(']') && 
+                !input.Equals('<') &&
+                !input.Equals('(');
         }
 
         private void OnLinkCompleted(char input, ParserStateMachine sm)
         {
-            if (input.Equals('>'))
+            if (input.Equals('>') || input.Equals(')'))
             {
                 sm.NextState = this.initialState;
                 this.initialState.OnSubElementCompleted(
