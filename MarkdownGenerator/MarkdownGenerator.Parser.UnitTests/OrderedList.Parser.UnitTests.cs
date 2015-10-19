@@ -90,7 +90,7 @@
                     firstTextItem.Text,
                     StringComparison.InvariantCultureIgnoreCase) == 0, "The first text is not correct");
             Assert.IsTrue(string.Compare(
-                    "for different reasons ",
+                    "for different reasons \r\n",
                     secondTextItem.Text,
                     StringComparison.InvariantCultureIgnoreCase) == 0, "The second text is not correct");
 
@@ -114,11 +114,11 @@
             var firstTextItem = orderedList.SubElements.First().SubElements.First() as MdElement;
             var secondTextItem = orderedList.SubElements.First().SubElements.Last() as MdElement;
             Assert.IsTrue(string.Compare(
-                    "Unit tests for different reasons",
+                    "Unit tests for different reasons\r\n",
                     firstTextItem.Text,
                     StringComparison.InvariantCultureIgnoreCase) == 0, "The first text is not correct");
             Assert.IsTrue(string.Compare(
-                    "here is why",
+                    "here is why\r\n",
                     secondTextItem.Text,
                     StringComparison.InvariantCultureIgnoreCase) == 0, "The second text is not correct");
 

@@ -27,12 +27,23 @@
             var isLinkItem = input.Equals('[') || input.Equals('<');
             var isTextCompleted = input.Equals('\n') || input.Equals('\r');
             var isCodeItem = input.Equals('`');
+            this.AddLineTerminators(isTextCompleted);
+
             if (isTextCompleted || isLinkItem || isCodeItem)
             {
                 sm.NextState = initialState;
                 this.initialState.OnSubElementCompleted(
-                    new MdElement(this.textBuilder.ToString()));
+                    new TextItem(this.textBuilder.ToString()));
                 sm.NextState.ProcessChar(input, sm);
+            }
+        }
+
+
+        private void AddLineTerminators(bool shouldAdd)
+        {
+            if (shouldAdd)
+            {
+                this.textBuilder.Append("\r\n");
             }
         }
     }
