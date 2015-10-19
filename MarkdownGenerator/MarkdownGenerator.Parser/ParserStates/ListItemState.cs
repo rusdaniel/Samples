@@ -10,13 +10,15 @@
 
         private ListItem listItem;
         private ISignalSubElemState initialState;
-        private bool isPendingEnd;
+        private bool isEndPending;
+        private bool isListItemEndPending;
 
         public ListItemState(ISignalSubElemState initialState)
         {
             this.listItem = new ListItem(string.Empty);
             this.initialState = initialState;
-            this.isPendingEnd = false;
+            this.isEndPending = false;
+            this.isListItemEndPending = false;
         }
 
         public void ProcessChar(char input, ParserStateMachine sm)
@@ -40,7 +42,7 @@
                 }
             }
 
-            isPendingEnd = input.Equals('\n');
+            isEndPending = input.Equals('\n') || this.isListItemEndPending;
         }
 
         public void OnSubElementCompleted(MdElement subElem)
@@ -61,23 +63,36 @@
         {
             //we assume that a digit on a new line means new list item 
             //we also assume that a new line followed by a carriage return means end on list
-            if (isPendingEnd)
+            var isListEndPending = input.Equals('\r');
+            if (this.isEndPending)
             {
-                if (char.IsDigit(input))
+                if (isListItemEndPending)
                 {
-                    sm.NextState = this.initialState;
-                    this.initialState.OnSubElementCompleted(this.listItem);
-                    sm.NextState.ProcessChar(newListItemChar, sm);
+                    if (input.Equals('.'))
+                    {
+                        sm.NextState = this.initialState;
+                        this.initialState.OnSubElementCompleted(this.listItem);
+                        sm.NextState.ProcessChar(newListItemChar, sm);
+                    }
+                    else
+                    {
+                        this.isListItemEndPending = false;
+                        this.isEndPending = false;
+                    }
                 }
-                else if (input.Equals('\r'))
+                else if (isListEndPending && !this.isListItemEndPending)
                 {
                     sm.NextState = this.initialState;
                     this.initialState.OnSubElementCompleted(this.listItem);
                     sm.NextState.ProcessChar(endListChar, sm);
                 }
+                else if (char.IsDigit(input))
+                {
+                    this.isListItemEndPending = true;
+                }
                 else
                 {
-                    isPendingEnd = false;
+                    this.isEndPending = false;
                 }
             }
         }
