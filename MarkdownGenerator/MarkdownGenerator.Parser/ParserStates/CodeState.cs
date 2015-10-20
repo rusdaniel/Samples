@@ -47,6 +47,7 @@
         {
             if (IsElemCompleted(input))
             {
+                this.AddLineTerminators(input);
                 sm.NextState = this.initialState;
                 this.initialState.OnSubElementCompleted(
                     new Code(this.code.ToString()));
@@ -63,10 +64,9 @@
 
         private void OnCodeCompleted(char input, ParserStateMachine sm)
         {
-            var shouldAddLineTerminators = input.Equals('\n') || input.Equals('\r');
             if (this.IsElemCompleted(input))
             {
-                this.AddLineTerminators(shouldAddLineTerminators);
+                this.AddLineTerminators(input);
                 sm.MdDoc.AddCode(
                     new Code(this.code.ToString()));
                 sm.NextState = new EntryState();
@@ -78,9 +78,10 @@
             return input.Equals('`');
         }
 
-        private void AddLineTerminators(bool shouldAdd)
+        private void AddLineTerminators(char input)
         {
-            if (shouldAdd)
+            var shouldAddLineTerminators = input.Equals('\n') || input.Equals('\r');
+            if (shouldAddLineTerminators)
             {
                 this.code.Append("\r\n");
             }
