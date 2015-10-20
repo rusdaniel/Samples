@@ -38,38 +38,26 @@
             {typeof(TextItem), MdElementType.Text}
         };
 
+        private static Dictionary<MdElementType, Func<MdElement, HtmlElement>> htmlElements = new Dictionary<MdElementType, Func<MdElement, HtmlElement>>()
+        {
+            {MdElementType.Code, e => {return new HtmlCode(e as Code);}},
+            {MdElementType.Header1, e => {return new HtmlHeader1(e as Header1);}},
+            {MdElementType.Header2, e => {return new HtmlHeader2(e as Header2);}},
+            {MdElementType.Header3, e => {return new HtmlHeader3(e as Header3);}},
+            {MdElementType.Header4, e => {return new HtmlHeader4(e as Header4);}},
+            {MdElementType.Header5, e => {return new HtmlHeader5(e as Header5);}},
+            {MdElementType.Header6, e => {return new HtmlHeader6(e as Header6);}},
+            {MdElementType.Link, e => {return new HtmlLink(e as LinkItem);}},
+            {MdElementType.ListItem, e => {return new HtmlListItem(e as ListItem);}},
+            {MdElementType.OrderedList, e => {return new HtmlOrderedList(e as OrderedList);}},
+            {MdElementType.Paragraph, e => {return new HtmlParagraph(e as Paragraph);}},
+            {MdElementType.Text, e => {return new HtmlText(e as TextItem);}}
+        };
+
         public static HtmlElement CreateHtmlElement(MdElement mdElement)
         {
             var type = mdElement.GetType();
-            switch (mdElements[type])
-            {
-                case MdElementType.Code:
-                    return new HtmlCode(mdElement as Code);
-                case MdElementType.Link:
-                    return new HtmlLink(mdElement as LinkItem);
-                case MdElementType.ListItem:
-                    return new HtmlListItem(mdElement as ListItem);
-                case MdElementType.Header1:
-                    return new HtmlHeader1(mdElement as Header1);
-                case MdElementType.Header2:
-                    return new HtmlHeader2(mdElement as Header2);
-                case MdElementType.Header3:
-                    return new HtmlHeader3(mdElement as Header3);
-                case MdElementType.Header4:
-                    return new HtmlHeader4(mdElement as Header4);
-                case MdElementType.Header5:
-                    return new HtmlHeader5(mdElement as Header5);
-                case MdElementType.Header6:
-                    return new HtmlHeader6(mdElement as Header6);
-                case MdElementType.Paragraph:
-                    return new HtmlParagraph(mdElement as Paragraph);
-                case MdElementType.OrderedList:
-                    return new HtmlOrderedList(mdElement as OrderedList);
-                case MdElementType.Text:
-                    return new HtmlText(mdElement as TextItem);
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            return htmlElements[mdElements[type]](mdElement);
         }
     }
 }
