@@ -9,19 +9,14 @@
 
     public class HtmlDocument : IDocument
     {
-        private const string cssRefFormat = "<link rel=\"stylesheet\" type=\"text/css\" href=\"Data/StyleSheets/{0}\" />";
-
         private StringBuilder docBuilder;
 
         private IEnumerable<MdElement> mdElements;
-
-        private CssSettings cssSettings;
 
         public HtmlDocument(MdDoc mdDoc)
         {
             this.docBuilder = new StringBuilder();
             this.mdElements = mdDoc.RootElem.MdElements;
-            this.cssSettings = new CssSettings();
         }
 
         public Stream GetContent()
@@ -42,14 +37,8 @@
         {
             this.docBuilder.AppendLine("<head>");
             this.docBuilder.AppendLine("<meta charset=\"UTF-8\">");
-            this.SetStylesheet();
+            this.docBuilder.AppendLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"Data/StyleSheets/MdStylesheet.css\" />");
             this.docBuilder.AppendLine("</head>");
-        }
-
-        private void SetStylesheet()
-        {
-            var settings = this.cssSettings.GetCssSettings();
-            this.docBuilder.AppendFormat(cssRefFormat, settings.CssFileName).AppendLine();
         }
 
         private void CloseDocument()

@@ -25,9 +25,6 @@
             <File ReadOnly="no" Id="MdStylesheet.css" Name="MdStylesheet.css" Source="$(var.PathToStylesheets)\MdStylesheet.css" KeyPath="yes" />
           </Component>
         </Directory>
-        <Component Id="CssSettings.xml" Guid="{316EB8FE-5FAE-4E93-9A3A-880CD62D0387}">
-          <File ReadOnly="no" Id="CssSettings.xml" Name="CssSettings.xml" Source="$(var.PathToData)\CssSettings.xml" KeyPath="yes" />
-        </Component>
       </Directory>
     </DirectoryRef>
 
@@ -38,7 +35,6 @@
       <ComponentRef Id="MarkdownGenerator.exe"/>
       <ComponentRef Id="MarkdownGenerator.exe.config"/>
       <ComponentRef Id="MdStylesheet.css"/>
-      <ComponentRef Id="CssSettings.xml"/>
     </ComponentGroup>
 
   </Fragment>
