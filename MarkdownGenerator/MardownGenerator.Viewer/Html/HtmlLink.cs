@@ -4,7 +4,7 @@
 
     public class HtmlLink : HtmlElement
     {
-        private const string format = "<a href=\"{0}\">{1}</a>";
+        private const string format = "<a href=\"{0}\">{1}</a> ";
 
         private LinkItem link;
 

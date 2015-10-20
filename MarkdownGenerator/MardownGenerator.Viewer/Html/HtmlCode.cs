@@ -5,7 +5,7 @@
 
     public class HtmlCode : HtmlElement
     {
-        private const string format = "<code>{0}</code>";
+        private const string format = "<code>{0}</code> ";
 
         private Code mdCode;
 
@@ -28,7 +28,7 @@
             builder.AppendFormat(format, this.mdCode.Text);
             if (this.mdCode.Text.EndsWith("\n"))
             {
-                builder.Append("<br>");
+                 builder.Append("<br/>");
             }
         }
     }
