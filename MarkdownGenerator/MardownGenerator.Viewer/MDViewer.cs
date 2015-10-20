@@ -1,19 +1,21 @@
-﻿using MarkdownGenerator.Common.Data;
-using MarkdownGenerator.Interfaces;
-using System.Diagnostics;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Threading;
-
-namespace MarkdownGenerator.Viewer
+﻿namespace MarkdownGenerator.Viewer
 {
+    using MarkdownGenerator.Common.Data;
+    using MarkdownGenerator.Interfaces;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Runtime.Serialization.Formatters.Binary;
+    using System.Threading;
+    using System.Reflection;
+
     public class MDViewer : IMarkdownViewer
     {
         private string filePath;
 
         public MDViewer()
         {
-            this.filePath = Path.Combine(Path.GetTempPath(), "testFile.html");
+            var location = Assembly.GetExecutingAssembly().Location;
+            this.filePath = Path.Combine(Path.GetDirectoryName(location), "testFile.html");
         }
 
         public void DisplayDoc(Stream source)

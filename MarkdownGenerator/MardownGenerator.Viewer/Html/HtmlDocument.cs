@@ -2,7 +2,6 @@
 {
     using MarkdownGenerator.Common.Data;
     using MarkdownGenerator.Interfaces;
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -10,14 +9,19 @@
 
     public class HtmlDocument : IDocument
     {
+        private const string cssRefFormat = "<link rel=\"stylesheet\" type=\"text/css\" href=\"Data/StyleSheets/{0}\" />";
+
         private StringBuilder docBuilder;
 
         private IEnumerable<MdElement> mdElements;
+
+        private CssSettings cssSettings;
 
         public HtmlDocument(MdDoc mdDoc)
         {
             this.docBuilder = new StringBuilder();
             this.mdElements = mdDoc.RootElem.MdElements;
+            this.cssSettings = new CssSettings();
         }
 
         public Stream GetContent()
@@ -28,17 +32,32 @@
 
         private void FormatDocument()
         {
+            this.SetDocType();
             this.FormatHeader();
             this.FormatBody();
-            this.FormatFooter();
+            this.CloseDocument();
         }
 
-        private void FormatFooter()
+        private void FormatHeader()
+        {
+            this.docBuilder.AppendLine("<head>");
+            this.docBuilder.AppendLine("<meta charset=\"UTF-8\">");
+            this.SetStylesheet();
+            this.docBuilder.AppendLine("</head>");
+        }
+
+        private void SetStylesheet()
+        {
+            var settings = this.cssSettings.GetCssSettings();
+            this.docBuilder.AppendFormat(cssRefFormat, settings.CssFileName).AppendLine();
+        }
+
+        private void CloseDocument()
         {
             this.docBuilder.AppendLine("</html>");
         }
 
-        private void FormatHeader()
+        private void SetDocType()
         {
             this.docBuilder.AppendLine("<!DOCTYPE html>");
             this.docBuilder.AppendLine("<html>");
