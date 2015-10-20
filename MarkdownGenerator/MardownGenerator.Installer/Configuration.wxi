@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include>
-  <?define PathToBinaries = ..\Binaries?>
+  <?define PathToBinaries = "..\Binaries"?>
+  <?define PathToData = "..\Data"?>
+  <?define PathToStylesheets = "$(var.PathToData)\StyleSheets"?>
+  <?define DataFolderName = "Data"?>
+  <?define StylesheetsFolderName = "StyleSheets"?>
 </Include>

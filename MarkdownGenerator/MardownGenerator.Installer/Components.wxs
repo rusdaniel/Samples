@@ -4,7 +4,7 @@
   <Fragment>
     <DirectoryRef Id="INSTALLFOLDER">
       <Component Id="MarkdownGenerator.Common.dll" Guid="{E7171AB4-F995-4B65-A5A0-32CFBAE0F131}">
-        <File ReadOnly="no" Id="MarkdownGenerator.Common.dll" Name="MarkdownGenerator.Common.dll" Source="$(var.PathToBinaries)\MarkdownGenerator.Common.dll" KeyPath="yes"/> 
+        <File ReadOnly="no" Id="MarkdownGenerator.Common.dll" Name="MarkdownGenerator.Common.dll" Source="$(var.PathToBinaries)\MarkdownGenerator.Common.dll" KeyPath="yes"/>
       </Component>
       <Component Id="MarkdownGenerator.Parser.dll" Guid="{2786DC30-6FED-4CD1-AE09-235ACF287905}">
         <File ReadOnly="no" Id="MarkdownGenerator.Parser.dll" Name="MarkdownGenerator.Parser.dll" Source="$(var.PathToBinaries)\MarkdownGenerator.Parser.dll" KeyPath="yes"/>
@@ -18,6 +18,17 @@
       <Component Id ="MarkdownGenerator.exe.config" Guid="{0B3ED7DF-320F-4099-A988-AA567041E423}">
         <File ReadOnly="no" Id="MarkdownGenerator.exe.config" Name="MarkdownGenerator.exe.config" Source="$(var.PathToBinaries)\MarkdownGenerator.exe.config" KeyPath="yes" />
       </Component>
+
+      <Directory Id="Data" Name="$(var.DataFolderName)">
+        <Directory Id="Stylesheets" Name="$(var.StylesheetsFolderName)">
+          <Component Id="MdStylesheet.css" Guid="{DBBBBF0B-EDF9-4323-8DDD-67D4103BE311}">
+            <File ReadOnly="no" Id="MdStylesheet.css" Name="MdStylesheet.css" Source="$(var.PathToStylesheets)\MdStylesheet.css" KeyPath="yes" />
+          </Component>
+        </Directory>
+        <Component Id="CssSettings.xml" Guid="{316EB8FE-5FAE-4E93-9A3A-880CD62D0387}">
+          <File ReadOnly="no" Id="CssSettings.xml" Name="CssSettings.xml" Source="$(var.PathToData)\CssSettings.xml" KeyPath="yes" />
+        </Component>
+      </Directory>
     </DirectoryRef>
 
     <ComponentGroup Id="Components">
@@ -26,7 +37,9 @@
       <ComponentRef Id="MarkdownGenerator.Viewer.dll"/>
       <ComponentRef Id="MarkdownGenerator.exe"/>
       <ComponentRef Id="MarkdownGenerator.exe.config"/>
+      <ComponentRef Id="MdStylesheet.css"/>
+      <ComponentRef Id="CssSettings.xml"/>
     </ComponentGroup>
-    
+
   </Fragment>
 </Wix>
