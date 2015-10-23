@@ -38,6 +38,8 @@
             this.docBuilder.AppendLine("<head>");
             this.docBuilder.AppendLine("<meta charset=\"UTF-8\">");
             this.docBuilder.AppendLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"Data/StyleSheets/MdStylesheet.css\" />");
+            this.docBuilder.AppendLine("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js\"></script>");
+            this.docBuilder.AppendLine("<script type=\"text/javascript\" src=\"Data/theme.js\"></script>");
             this.docBuilder.AppendLine("</head>");
         }
 
@@ -55,6 +57,11 @@
         private void FormatBody()
         {
             this.docBuilder.AppendLine("<body>");
+            this.docBuilder.AppendLine("<div>");
+            this.docBuilder.AppendLine("<button id=\"themeABtn\">Theme A</button>");
+            this.docBuilder.AppendLine("<button id=\"themeBBtn\">Theme B</button>");
+            this.docBuilder.AppendLine("<button id=\"themeCBtn\">Theme C</button>");
+            this.docBuilder.AppendLine("</div>");
             this.FormatMdElements();
             this.docBuilder.AppendLine("</body>");
         }
