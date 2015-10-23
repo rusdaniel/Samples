@@ -1,9 +1,66 @@
-﻿body {
-    font-family: Verdana;
-    font-style: normal;
+﻿body.themeA  {
+  font-size: 10pt;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  color: blue;
+  background-color:gray;
+  line-height: 14pt;
+  padding-left: 5pt;
+  padding-right: 5pt;
+  padding-top: 5pt;
 }
 
-p {
-    font-family: 'Comic Sans MS';
-    display: block;
+.themeA h1{
+  font: 14pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 20pt;
+  color: black;
+  background-color: aqua;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
 }
+
+body.themeB  {
+  font-size: 10pt;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  color: blue;
+  background-color: antiquewhite;
+  line-height: 14pt;
+  padding-left: 5pt;
+  padding-right: 5pt;
+  padding-top: 5pt;
+}
+
+.themeB h1{
+  font: 14pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 20pt;
+  color: black;
+  background-color: aqua;
+  border-width: 2px;
+  border-color: black;
+  border-style: groove;
+}
+
+body.themeC  {
+  font-size: 10pt;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  color: red;
+  background-color: antiquewhite;
+  line-height: 14pt;
+  padding-left: 5pt;
+  padding-right: 5pt;
+  padding-top: 5pt;
+}
+
+.themeC h1{
+  font: 14pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 20pt;
+  color: yellow;
+  background-color: aqua;
+  border-width: 2px;
+  border-color: black;
+  border-style: groove;
+}
+
