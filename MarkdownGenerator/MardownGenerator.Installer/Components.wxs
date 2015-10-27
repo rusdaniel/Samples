@@ -21,8 +21,19 @@
 
       <Directory Id="Data" Name="$(var.DataFolderName)">
         <Directory Id="Stylesheets" Name="$(var.StylesheetsFolderName)">
-          <Component Id="MdStylesheet.css" Guid="{DBBBBF0B-EDF9-4323-8DDD-67D4103BE311}">
-            <File ReadOnly="no" Id="MdStylesheet.css" Name="MdStylesheet.css" Source="$(var.PathToStylesheets)\MdStylesheet.css" KeyPath="yes" />
+          <Component Id="MdStylesheetA.css" Guid="{DBBBBF0B-EDF9-4323-8DDD-67D4103BE311}">
+            <File ReadOnly="no" Id="MdStylesheetA.css" Name="MdStylesheetA.css" Source="$(var.PathToStylesheets)\MdStylesheetA.css" KeyPath="yes" />
+          </Component>
+          <Component Id="MdStylesheetB.css" Guid="{45886F72-D577-4ABD-BC66-29104F5457EA}">
+            <File ReadOnly="no" Id="MdStylesheetB.css" Name="MdStylesheetB.css" Source="$(var.PathToStylesheets)\MdStylesheetB.css" KeyPath="yes" />
+          </Component>
+          <Component Id="MdStylesheetC.css" Guid="{C6EE6383-DB62-4157-A7EF-27F9F720568E}">
+            <File ReadOnly="no" Id="MdStylesheetC.css" Name="MdStylesheetC.css" Source="$(var.PathToStylesheets)\MdStylesheetC.css" KeyPath="yes" />
+          </Component>
+        </Directory>
+        <Directory Id="Scripts" Name="$(var.ScriptsFolderName)">
+          <Component Id="theme.js" Guid="{A28BF469-E9C2-4095-B4D8-4C4DA069E5B1}">
+            <File ReadOnly="no" Id="theme.js" Name="theme.js" Source="$(var.PathToScripts)\theme.js" KeyPath="yes" />
           </Component>
         </Directory>
       </Directory>
@@ -34,7 +45,10 @@
       <ComponentRef Id="MarkdownGenerator.Viewer.dll"/>
       <ComponentRef Id="MarkdownGenerator.exe"/>
       <ComponentRef Id="MarkdownGenerator.exe.config"/>
-      <ComponentRef Id="MdStylesheet.css"/>
+      <ComponentRef Id="MdStylesheetA.css"/>
+      <ComponentRef Id="MdStylesheetB.css"/>
+      <ComponentRef Id="MdStylesheetC.css"/>
+      <ComponentRef Id="theme.js"/>
     </ComponentGroup>
 
   </Fragment>

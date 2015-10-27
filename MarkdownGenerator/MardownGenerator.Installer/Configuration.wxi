@@ -5,4 +5,6 @@
   <?define PathToStylesheets = "$(var.PathToData)\StyleSheets"?>
   <?define DataFolderName = "Data"?>
   <?define StylesheetsFolderName = "StyleSheets"?>
+  <?define ScriptsFolderName = "Scripts"?>
+  <?define PathToScripts = "$(var.PathToData)\Scripts"?>
 </Include>
