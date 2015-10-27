@@ -1,0 +1,21 @@
+body.themeC  {
+  font-size: 10pt;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  color: red;
+  background-color: antiquewhite;
+  line-height: 14pt;
+  padding-left: 5pt;
+  padding-right: 5pt;
+  padding-top: 5pt;
+}
+
+.themeC h1{
+  font: 14pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 20pt;
+  color: yellow;
+  background-color: aqua;
+  border-width: 2px;
+  border-color: black;
+  border-style: groove;
+}
