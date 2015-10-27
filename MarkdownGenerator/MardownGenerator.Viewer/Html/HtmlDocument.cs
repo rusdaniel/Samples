@@ -37,7 +37,9 @@
         {
             this.docBuilder.AppendLine("<head>");
             this.docBuilder.AppendLine("<meta charset=\"UTF-8\">");
-            this.docBuilder.AppendLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"Data/StyleSheets/MdStylesheet.css\" />");
+            this.docBuilder.AppendLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"Data/StyleSheets/MdStylesheetA.css\" />");
+            this.docBuilder.AppendLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"Data/StyleSheets/MdStylesheetB.css\" />");
+            this.docBuilder.AppendLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"Data/StyleSheets/MdStylesheetC.css\" />");
             this.docBuilder.AppendLine("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js\"></script>");
             this.docBuilder.AppendLine("<script type=\"text/javascript\" src=\"Data/Scripts/theme.js\"></script>");
             this.docBuilder.AppendLine("</head>");
